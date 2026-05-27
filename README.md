@@ -5,18 +5,14 @@
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/phpunit-assertions?color=8892bf)](https://www.php.net/supported-versions)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/phpunit-assertions?color=blue)](https://packagist.org/packages/ghostwriter/phpunit-assertions)
 
-work in progress
-
-> [!WARNING]
->
-> This project is not finished yet, work in progress.
+Additional assertions for PHPUnit
 
 ## Installation
 
 You can install the package via composer:
 
 ``` bash
-composer require ghostwriter/phpunit-assertions
+composer require ghostwriter/phpunit-assertions --dev
 ```
 
 ### Star ⭐️ this repo if you find it useful
@@ -26,12 +22,71 @@ You can also star (🌟) this repo to find it easier later.
 ## Usage
 
 ```php
-// work in progress
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Unit;
+
+use PHPUnit\Framework\TestCase;
+use Ghostwriter\PHPUnitAssertions\Trait\ClassAssertionsTrait;
+
+final class ExampleTest extends TestCase
+{
+    use ClassAssertionsTrait;
+
+    public function testClassAssertions(): void
+    {
+        self::assertClassHasMethod('invoke', ExampleChild::class);
+        self::assertClassDoesNotHaveMethod('missing', ExampleChild::class);
+        self::assertClassExtendsClass(ExampleChild::class, ExampleBase::class);
+        self::assertClassExtendsClasses(ExampleChild::class, [ExampleBase::class, ExampleRoot::class]);
+        self::assertClassImplementsInterface(ExampleChild::class, ExampleInterface::class);
+        self::assertClassImplementsInterfaces(ExampleChild::class, [ExampleInterface::class, ExampleExtraInterface::class]);
+        self::assertClassUsesTrait(ExampleChild::class, ExampleTraitA::class);
+        self::assertClassUsesTraits(ExampleChild::class, [ExampleTraitA::class, ExampleTraitB::class]);
+    }
+}
+
+interface ExampleInterface {}
+interface ExampleExtraInterface {}
+interface ExampleCompositeInterface extends ExampleInterface, ExampleExtraInterface {}
+
+trait ExampleTraitA {}
+trait ExampleTraitB {}
+
+class ExampleRoot {}
+
+class ExampleBase extends ExampleRoot
+{
+    use ExampleTraitA;
+
+    public function invoke(): void {}
+}
+
+class ExampleChild extends ExampleBase implements ExampleCompositeInterface
+{
+    use ExampleTraitB;
+}
 ```
+
+## Trait methods
+
+### `ClassAssertionsTrait`
+
+- `ClassAssertionsTrait::assertClassHasMethod`
+- `ClassAssertionsTrait::assertClassDoesNotHaveMethod`
+- `ClassAssertionsTrait::assertClassExtendsClass`
+- `ClassAssertionsTrait::assertClassExtendsClasses`
+- `ClassAssertionsTrait::assertClassImplementsInterface`
+- `ClassAssertionsTrait::assertClassImplementsInterfaces`
+- `ClassAssertionsTrait::assertClassUsesTrait`
+- `ClassAssertionsTrait::assertClassUsesTraits`
 
 ### Credits
 
 - [Nathanael Esayeas](https://github.com/ghostwriter)
+- [Sebastian Bergmann](https://github.com/sebastianbergmann) (PHPUnit creator and maintainer)
 - [All Contributors](https://github.com/ghostwriter/phpunit-assertions/contributors)
 
 ### Changelog
