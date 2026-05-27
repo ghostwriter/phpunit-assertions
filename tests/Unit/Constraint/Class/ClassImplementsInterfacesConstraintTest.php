@@ -107,7 +107,7 @@ final class ClassImplementsInterfacesConstraintTest extends AbstractTestCase
             ClassImplementsInterfacesContractB::class,
         ]);
 
-        self::assertFalse($constraint->evaluate('Tests\\Fixture\\Class\\MissingImplementsInterfacesTarget', '', true));
+        self::assertFalse(@$constraint->evaluate('Tests\\Fixture\\Class\\MissingImplementsInterfacesTarget', '', true));
     }
 
     public function testReturnsFalseWhenInputIsNotClassStringOrObject(): void

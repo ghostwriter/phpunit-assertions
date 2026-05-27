@@ -92,7 +92,7 @@ final class ClassUsesTraitsConstraintTest extends AbstractTestCase
     {
         $constraint = new ClassUsesTraitsConstraint([ClassUsesTraitsTraitA::class, ClassUsesTraitsTraitB::class]);
 
-        self::assertFalse($constraint->evaluate('Tests\\Fixture\\Class\\MissingUsesTraitsTarget', '', true));
+        self::assertFalse(@$constraint->evaluate('Tests\\Fixture\\Class\\MissingUsesTraitsTarget', '', true));
     }
 
     public function testReturnsFalseWhenInputIsNotClassStringOrObject(): void
