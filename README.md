@@ -86,7 +86,7 @@ class ExampleChild extends ExampleBase implements ExampleCompositeInterface
 ### Credits
 
 - [Nathanael Esayeas](https://github.com/ghostwriter)
-- [Sebastian Bergmann](https://github.com/sebastianbergmann) (PHPUnit creator and maintainer)
+- [Sebastian Bergmann](https://github.com/sebastianbergmann) creator of [PHPUnit](https://github.com/sebastianbergmann/phpunit)
 - [All Contributors](https://github.com/ghostwriter/phpunit-assertions/contributors)
 
 ### Changelog
