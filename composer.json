@@ -63,7 +63,7 @@
     },
     "require-dev": {
         "ext-xdebug": "*",
-        "boundwize/structarmed": "^0.14.11",
+        "boundwize/structarmed": "^0.14.16",
         "fig/http-message-util": "^1.1.5",
         "ghostwriter/coding-standard": "dev-main",
         "ghostwriter/container": "^7.0.2",
