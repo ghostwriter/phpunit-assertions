@@ -58,8 +58,7 @@
     ],
     "require": {
         "php": "~8.4.0 || ~8.5.0 || ~8.6.0",
-        "ext-mbstring": "*",
-        "phpunit/phpunit": "^13.2.4"
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "ext-xdebug": "*",
@@ -67,7 +66,7 @@
         "ghostwriter/coding-standard": "dev-main",
         "ghostwriter/container": "^7.0.2",
         "mockery/mockery": "^1.6.12",
-        "phpunit/phpunit": "^13.2.4",
+        "phpunit/phpunit": "^13.2.6",
         "psr/cache": "^3.0.0",
         "psr/clock": "^1.0.0",
         "psr/container": "^2.0.2",
